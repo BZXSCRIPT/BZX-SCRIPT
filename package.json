@@ -1,0 +1,8 @@
+{
+  "name": "key-manager",
+  "version": "1.0.0",
+  "description": "Generador y administrador de keys de acceso",
+  "scripts": {
+    "start": "echo 'Static site - no server needed'"
+  }
+}
