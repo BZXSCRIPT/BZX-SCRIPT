@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Manager - Generador de Keys</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Panel Principal -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="title">
+                    <span class="icon">🔐</span>
+                    Key Manager
+                </h1>
+                <p class="subtitle">Genera y administra tus keys de acceso</p>
+            </div>
+
+            <!-- Generador de Keys -->
+            <div class="generator-card">
+                <h2>Generar Nueva Key</h2>
+                
+                <div class="form-group">
+                    <label for="daysInput">Días de Duración</label>
+                    <div class="date-input-group">
+                        <input type="number" id="daysInput" class="manual-date-input" placeholder="Ej: 30" min="1">
+                    </div>
+                    <small class="hint">Ingresa el número de días que durará la key</small>
+                </div>
+
+                <button id="generateBtn" class="btn-generate">
+                    <span class="btn-icon">✨</span>
+                    Generar Key
+                </button>
+
+                <div id="generatedKey" class="generated-key hidden">
+                    <div class="key-display">
+                        <span id="keyValue"></span>
+                        <button id="copyGeneratedBtn" class="btn-copy-small" title="Copiar">📋</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sistema de HWID -->
+            <div class="generator-card" style="margin-top: 2rem;">
+                <h2>Vincular Key con HWID</h2>
+                
+                <div class="form-group">
+                    <label for="keyToLink">Key a Vincular</label>
+                    <input type="text" id="keyToLink" class="manual-date-input" placeholder="Ej: ABCD-1234-EFGH">
+                    <small class="hint">Ingresa la key que quieres vincular a un dispositivo</small>
+                </div>
+
+                <button id="linkKeyBtn" class="btn-generate">
+                    <span class="btn-icon">🔗</span>
+                    Vincular Key con HWID
+                </button>
+            </div>
+        </main>
+
+        <!-- Panel Lateral de Keys -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Mis Keys</h3>
+                <span id="keyCount" class="key-count">0</span>
+            </div>
+            
+            <div id="keysList" class="keys-list">
+                <div class="empty-state">
+                    <span class="empty-icon">🔑</span>
+                    <p>No hay keys generadas</p>
+                </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="sidebar-separator"></div>
+
+            <!-- Lista de Keys Vinculadas -->
+            <div class="sidebar-header" style="margin-top: 2rem;">
+                <h3>Keys Vinculadas</h3>
+                <span id="linkedCount" class="key-count">0</span>
+            </div>
+            
+            <div id="linkedKeysList" class="keys-list">
+                <div class="empty-state">
+                    <span class="empty-icon">�</span>
+                    <p>No hay keys vinculadas</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Notificaciones -->
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
